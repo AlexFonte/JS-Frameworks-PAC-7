@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class NavbarComponent {
 
-  public currentView: string= 'article-list';
+  public currentView: string= 'login';
 
   @Output() componentToShow = new EventEmitter<string>();
 

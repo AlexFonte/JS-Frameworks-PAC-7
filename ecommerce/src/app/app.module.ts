@@ -13,6 +13,9 @@ import { ArticleNewReactiveComponent } from './articles/article-new-reactive/art
 import { ArticleService } from './services/article-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageUrlPipe } from './pipes/imageUrl.pipe';
+import { LoginComponent } from './user/login/login.component';
+import { UserService } from './services/user.service';
+import { RegisterComponent } from './user/register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { ImageUrlPipe } from './pipes/imageUrl.pipe';
     NavbarComponent,
     ArticleNewTemplateComponent,
     ArticleNewReactiveComponent,
-    ImageUrlPipe
+    ImageUrlPipe,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,8 @@ import { ImageUrlPipe } from './pipes/imageUrl.pipe';
     HttpClientModule
   ],
   providers: [
-    ArticleService
+    ArticleService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
