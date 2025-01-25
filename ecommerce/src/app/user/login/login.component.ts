@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ArticleQuantityChange } from '../../model/article-quantity-change';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -28,15 +27,16 @@ export class LoginComponent {
   login(): void {
     this.invalidLogin = false;
     if (this.loginForm.valid) {
-      this.userService.login(this.loginForm.value).subscribe(
-        success => {
-        console.log("User login !!!", success);
-        this.loginForm.reset();
-      },
-      error => {
-        this.invalidLogin = true;
-        this.msgErrorLogin = error;
-        console.log("Error login", error);
+      this.userService.login(this.loginForm.value).subscribe({
+        next: (res) => {
+          console.log("User login !!!", res);
+          this.loginForm.reset();
+        },
+        error: (err) => {
+          this.invalidLogin = true;
+          this.msgErrorLogin = err;
+          console.log("Error login", err);
+        }
       });
     }
   }

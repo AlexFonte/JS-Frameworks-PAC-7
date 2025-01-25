@@ -5,7 +5,7 @@
 
     <div class="mt-2">
       <app-login *ngIf="currentComponent === 'login'"></app-login>
-      <app-login *ngIf="currentComponent === 'register'"></app-login>
+      <app-register *ngIf="currentComponent === 'register'"></app-register>
       <app-article-list class="d-flex justify-content-evenly align-items-start" *ngIf="currentComponent === 'article-list'"></app-article-list>
       <app-article-new-template *ngIf="currentComponent === 'article-new-template'"></app-article-new-template>
       <app-article-new-reactive *ngIf="currentComponent === 'article-new-reactive'"></app-article-new-reactive> 

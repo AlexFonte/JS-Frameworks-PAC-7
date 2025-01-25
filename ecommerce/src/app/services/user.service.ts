@@ -7,12 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private baseUrl: string = "http://localhost:3000/api/users";
+  private baseUrl: string = "http://localhost:3000/api/user";
   constructor(private http: HttpClient) { }
 
-  login(user: { usermane: string, password: string }): Observable<any> {
-    console.log("Login user...");
+  login(user: { username: string, password: string }): Observable<any> {
+    console.log("Login user...", user);
     return this.http.post<any>(`${this.baseUrl}/login`, user);
+  }
+
+
+  register(user: { usermane: string, password: string }): Observable<any> {
+    console.log("Sing Up new User...");
+    return this.http.post<any>(`${this.baseUrl}/register`, user);
   }
 
 }
