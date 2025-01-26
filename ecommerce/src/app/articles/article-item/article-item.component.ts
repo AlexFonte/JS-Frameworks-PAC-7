@@ -39,6 +39,6 @@ export class ArticleItemComponent implements OnInit {
 
   goToDetail() {
     console.log('Go to detail');
-    this.router.navigate(['/article-detail', this.article.id]);
+    this.router.navigate(['/article', this.article.id]);
   }
 }

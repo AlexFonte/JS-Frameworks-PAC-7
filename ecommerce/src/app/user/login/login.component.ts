@@ -35,7 +35,7 @@ export class LoginComponent {
           console.log("User login !!!", res);
           this.loginForm.reset();
           this.userService.saveToken(res.token);
-          this.router.navigate(['/article-list']);
+          this.router.navigate(['article/list']);
         },
         error: (err) => {
           this.invalidLogin = true;

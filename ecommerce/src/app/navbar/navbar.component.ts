@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { UserStoreService } from '../user/user-store.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,16 +9,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class NavbarComponent {
 
-  public currentView: string= 'login';
 
-  @Output() componentToShow = new EventEmitter<string>();
+  constructor(public userStore: UserStoreService, private router: Router) { }
 
-  constructor() { }
-
-/*   onMenuClick(component: string) {
-    console.log(component);
-    this.currentView = component;
-    this.componentToShow.emit(component);
-  } */
+  logout(): void {
+    this.userStore.logout();
+    this.router.navigate(['login']);
+  }
 
 }

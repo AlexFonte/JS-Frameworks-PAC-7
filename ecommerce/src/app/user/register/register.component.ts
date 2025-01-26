@@ -34,7 +34,7 @@ export class RegisterComponent {
         next: (res) => {
           console.log("User login !!!", res);
           this.registerForm.reset();
-          this.router.navigate(['/login']);
+          this.router.navigate(['login']);
         },
         error: (err) => {
           this.invalidRegister = true;

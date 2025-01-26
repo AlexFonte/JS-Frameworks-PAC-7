@@ -18,6 +18,7 @@ import { RegisterComponent } from './user/register/register.component';
 import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
 import { UserStoreService } from './user/user-store.service';
 import { ArticleAppInterceptor } from './article-app.interceptor';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ArticleAppInterceptor } from './article-app.interceptor';
     ArticleService,
     UserService,
     UserStoreService,
+    AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: ArticleAppInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
