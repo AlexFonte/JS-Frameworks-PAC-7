@@ -10,13 +10,14 @@ import { ArticleListComponent } from './articles/article-list/article-list.compo
 import { NavbarComponent } from './navbar/navbar.component';
 import { ArticleNewReactiveComponent } from './articles/article-new-reactive/article-new-reactive.component';
 import { ArticleService } from './services/article-service.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ImageUrlPipe } from './pipes/imageUrl.pipe';
 import { LoginComponent } from './user/login/login.component';
 import { UserService } from './services/user.service';
 import { RegisterComponent } from './user/register/register.component';
 import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
 import { UserStoreService } from './user/user-store.service';
+import { ArticleAppInterceptor } from './article-app.interceptor';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { UserStoreService } from './user/user-store.service';
   providers: [
     ArticleService,
     UserService,
-    UserStoreService
+    UserStoreService,
+    { provide: HTTP_INTERCEPTORS, useClass: ArticleAppInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
