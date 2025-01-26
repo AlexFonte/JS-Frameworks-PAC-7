@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './user/login/login.component';
-import { RegisterComponent } from './user/register/register.component';
+import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
 import { ArticleListComponent } from './articles/article-list/article-list.component';
 import { ArticleNewReactiveComponent } from './articles/article-new-reactive/article-new-reactive.component';
-import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
 import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },

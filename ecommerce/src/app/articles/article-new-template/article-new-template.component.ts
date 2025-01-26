@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Article } from '../../model/article';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-new-template',
@@ -11,7 +12,7 @@ export class ArticleNewTemplateComponent {
 
   public invalidForm: boolean = false;
 
-  constructor() {
+  constructor(private router: Router, route: ActivatedRoute) {
   }
 
   createArticle(articleForm: NgForm): void {

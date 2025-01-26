@@ -1,23 +1,34 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { UserService } from '../../services/user.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserStoreService } from '../user-store.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup
   public invalidLogin: boolean = false;
   public msgErrorLogin: String = '';
 
-  constructor(private fb: FormBuilder, 
-    private userService: UserService, 
-    private router: Router) {  
+  constructor(private fb: FormBuilder,
+    private userService: UserService,
+    private uerStore: UserStoreService,
+    private router: Router,
+    private route: ActivatedRoute) {
     this.creatForm();
+  }
+
+  ngOnInit(): void {
+    console.log("Is user loged ???");
+    if (this.uerStore.isUserAuthenticated()) {
+      console.log("User login !!!");
+      this.router.navigate(['article/list']);
+    }
   }
 
   creatForm(): void {
@@ -43,7 +54,7 @@ export class LoginComponent {
           console.log("Error login", err);
         }
       });
-    }else{
+    } else {
       console.log("Formulario no valido");
     }
   }

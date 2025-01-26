@@ -3,6 +3,7 @@ import { Article } from "../../model/article";
 import { ArticleQuantityChange } from "../../model/article-quantity-change";
 import { debounceTime, distinctUntilChanged, merge, mergeWith, Observable, startWith, Subject, switchMap } from 'rxjs';
 import { ArticleService } from '../../services/article-service.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-article-list',
@@ -35,7 +36,7 @@ export class ArticleListComponent implements OnInit {
   private searchTerms: Subject<string> = new Subject();
   private reloadArticleList: Subject<void> = new Subject();
 
-  constructor(private articleService: ArticleService) {
+  constructor(private articleService: ArticleService, private router: Router, private route:ActivatedRoute) {
   }
 
   ngOnInit() {

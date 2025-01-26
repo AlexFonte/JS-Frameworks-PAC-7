@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,8 +15,9 @@ export class RegisterComponent {
   public msgErrorRegister: String = '';
 
   constructor(private fb: FormBuilder,
-              private userService: UserService,
-              private router: Router) {
+    private userService: UserService,
+    private router: Router,
+    private route: ActivatedRoute) {
     this.creatForm();
   }
 
