@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,9 @@ export class LoginComponent {
   public invalidLogin: boolean = false;
   public msgErrorLogin: String = '';
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  constructor(private fb: FormBuilder, 
+    private userService: UserService, 
+    private router: Router) {  
     this.creatForm();
   }
 
@@ -31,6 +34,8 @@ export class LoginComponent {
         next: (res) => {
           console.log("User login !!!", res);
           this.loginForm.reset();
+          this.userService.saveToken(res.token);
+          this.router.navigate(['/article-list']);
         },
         error: (err) => {
           this.invalidLogin = true;
@@ -38,6 +43,8 @@ export class LoginComponent {
           console.log("Error login", err);
         }
       });
+    }else{
+      console.log("Formulario no valido");
     }
   }
 

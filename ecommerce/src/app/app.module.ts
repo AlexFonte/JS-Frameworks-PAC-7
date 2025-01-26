@@ -16,6 +16,7 @@ import { LoginComponent } from './user/login/login.component';
 import { UserService } from './services/user.service';
 import { RegisterComponent } from './user/register/register.component';
 import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
+import { UserStoreService } from './user/user-store.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ArticleDetailComponent } from './articles/article-detail/article-detail
   ],
   providers: [
     ArticleService,
-    UserService
+    UserService,
+    UserStoreService
   ],
   bootstrap: [AppComponent]
 })

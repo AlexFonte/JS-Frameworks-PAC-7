@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,9 @@ export class RegisterComponent {
   public invalidRegister: boolean = false;
   public msgErrorRegister: String = '';
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  constructor(private fb: FormBuilder,
+              private userService: UserService,
+              private router: Router) {
     this.creatForm();
   }
 
@@ -31,6 +34,7 @@ export class RegisterComponent {
         next: (res) => {
           console.log("User login !!!", res);
           this.registerForm.reset();
+          this.router.navigate(['/login']);
         },
         error: (err) => {
           this.invalidRegister = true;
