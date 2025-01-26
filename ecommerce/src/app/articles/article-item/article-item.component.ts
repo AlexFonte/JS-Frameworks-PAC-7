@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Article} from "../../model/article";
 import {ArticleQuantityChange} from "../../model/article-quantity-change";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-item',
@@ -15,7 +16,7 @@ export class ArticleItemComponent implements OnInit {
   public stockClasses;
   @Output() public quantityChange: EventEmitter<ArticleQuantityChange>;
 
-  constructor() {
+  constructor(private router: Router) {
     this.quantityChange = new EventEmitter<ArticleQuantityChange>();
   }
 
@@ -34,5 +35,10 @@ export class ArticleItemComponent implements OnInit {
     if (this.article.quantityInCart > 0) {
       this.quantityChange.emit({article: this.article, quantityChange: -1})
     }
+  }
+
+  goToDetail() {
+    console.log('Go to detail');
+    this.router.navigate(['/article-detail', this.article.id]);
   }
 }

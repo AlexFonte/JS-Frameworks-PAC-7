@@ -1,6 +1,6 @@
 <div [class]="article.isOnSale ? 'article-item sale mt-3' : 'article-item mt-3'">
   <div class="image">
-    <img [src]="article.imageUrl | imgUrl" alt="foto d'aigua"/>
+    <img [src]="article.imageUrl | imgUrl" alt="foto d'aigua" (click)="goToDetail()"/>
   </div>
   <div class="details mt-2 d-flex flex-column justify-content-between">
     <div> {{ article.name }} </div>
