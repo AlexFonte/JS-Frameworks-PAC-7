@@ -13,10 +13,10 @@ export class NavbarComponent {
 
   constructor() { }
 
-  onMenuClick(component: string) {
+/*   onMenuClick(component: string) {
     console.log(component);
     this.currentView = component;
     this.componentToShow.emit(component);
-  }
+  } */
 
 }

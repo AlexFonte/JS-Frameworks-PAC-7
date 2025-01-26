@@ -1,22 +1,19 @@
 <nav class="navbar bg-secondary">
     <ul class="nav d-flex justify-content-center w-100 gap-4">
         <li class="nav-item ">
-            <button class="nav-link text-white" (click)="onMenuClick('login')">Login</button>
+            <a class="nav-link text-white" routerLink="/login">Login</a>
         </li>
         <li class="nav-item ">
-            <button class="nav-link text-white" (click)="onMenuClick('register')">Register</button>
+            <a class="nav-link text-white" routerLink="/register">Register</a>
         </li>
         <li class="nav-item ">
-            <button class="nav-link text-white" (click)="onMenuClick('article-list')">Inici</button>
+            <a class="nav-link text-white" routerLink="/article-list">Inici</a>
         </li>
         <li class="nav-item">
-            <button class="nav-link text-white" (click)="onMenuClick('article-list')">Articles</button>
+            <a class="nav-link text-white" routerLink="/article-list">Articles</a>
         </li>
         <li class="nav-item">
-            <button class="nav-link text-white" (click)="onMenuClick('article-new-template')">Nou article template</button>
-        </li>
-        <li class="nav-item">
-            <button class="nav-link text-white" (click)="onMenuClick('article-new-reactive')">Nou article reactiu</button>
+            <a class="nav-link text-white" routerLink="/article-new-reactive">Nou article reactiu</a>
         </li>
     </ul>
 </nav>

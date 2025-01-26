@@ -59,4 +59,8 @@ export class ArticleService {
     return this.http.post<Article>(this.baseUrl , article);
   }
 
+  getArticleById(id: string): Observable<Article> {
+    return this.http.get<Article>(`${this.baseUrl}/${id}`);
+  }
+
 }
